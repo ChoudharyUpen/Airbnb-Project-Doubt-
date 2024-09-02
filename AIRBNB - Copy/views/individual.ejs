@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust</title>
+    <link rel="stylesheet" href="/stylesindivual.css">
+</head>
+<body>
+    <%- include("includes/navbar.ejs") %>
+        <div class="container">
+            <div class="post-container">
+                <a href="/post/<%= post.id %>">
+                    <img src="<%= post.image.url %>" alt="<%= post.title %>" class="post-image">
+                </a>
+                <h3 class="post-title"><%= post.title %></h3>
+                <h4 class="post-price"><%= post.price %></h4>
+                <div class="post-actions">
+                    <a href="/posts/<%= post.id %>/edit" class="btn edit-btn">Edit</a>
+                    <form method="post" action="/posts/<%= post.id %>?_method=DELETE" class="delete-form">
+                        <button type="submit" class="btn delete-btn">Delete Post</button>
+                    </form>
+                </div>
+                <a href="/posts/new" class="btn create-btn">Create New Post</a>
+            </div>
+        </div>
+</body>
+
+</html>
